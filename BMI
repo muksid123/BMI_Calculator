@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BMI Calculator</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: rgba(36, 6, 6, 0.8);
+        background-image: url("background.jpg");
+        background-size: cover;
+        font-family: 'Montserrat', sans-serif;
+      }
+      form {
+        background-color: rgba(255, 255, 255, 0.8);
+        justify-content: center;
+        padding: 20px;
+        max-width: 300px;
+        margin: 15% auto;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="weightInput">Weight (kg):</label>
+      <input type="number" id="weightInput"><br><br>
+      
+      <label for="heightInput">Height (m):</label>
+      <input type="number" id="heightInput"><br><br>
+      
+      <button type="button" id="calculateBtn">Calculate BMI</button>
+        
+      <br/><br/>
+
+      <div id="result"></div>
+    </form>
+    
+    <br>
+
+    <script>
+      // Get the input elements and the result div
+      const weightInput = document.getElementById("weightInput");
+      const heightInput = document.getElementById("heightInput");
+      const resultDiv = document.getElementById("result");
+
+      // Add an event listener to the calculate button
+      const calculateBtn = document.getElementById("calculateBtn");
+      calculateBtn.addEventListener("click", function() {
+        // Get the values from the input fields
+        const weight = weightInput.value;
+        const height = heightInput.value;
+
+        // Calculate the BMI
+        const bmi = weight / (height * height);
+
+        // Display the result on the web page
+        resultDiv.innerHTML = `Your BMI is ${bmi.toFixed(2)}.`;
+      });
+    </script>
+  </body>
+</html>
